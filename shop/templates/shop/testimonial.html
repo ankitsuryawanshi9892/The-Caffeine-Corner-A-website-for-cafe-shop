@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testimonials</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/menu/">Menu</a>
+    <a href="/about/">About Us</a>
+    <a href="/testimonial/">Testimonials</a>
+  </nav>
+
+  <div class="container">
+    <div class="testimonials">
+      <div class="heading">
+        <h2 style="color: white;">What Our Customers Say</h2>
+      </div>
+      <div class="testimonial-container" id="testimonialContainer">
+        {% for testimonial in testimonials %}
+          <div class="testimonial">
+            <p>{{ testimonial.review }}</p>
+            <h4>-{{ testimonial.name }}</h4>
+          </div>  
+        {% endfor %}
+      </div>
+    </div>
+    <div class="form">
+      <form id="testimonialForm" action="/shop/testimonial/" method="post" >
+        {% csrf_token %}
+        <h3 style="color: white;">Add Your Testimonial</h3>
+        <input type="text" id="testimonialQuote" placeholder="Enter your testimonial" required name="review">
+        <input type="text" id="testimonialAuthor" placeholder="Enter your name" name="name" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+  body {
+  background-color: #0f0e0e;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+.testimonials {
+  width: 70%;
+}
+
+.heading {
+  text-align: center;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  width: 30%;
+}
+
+#testimonialForm {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#testimonialForm h3 {
+  margin-bottom: 10px;
+}
+
+#testimonialForm input[type="text"],
+#testimonialForm button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#testimonialForm button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  margin-left: 11px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#testimonialForm button[type="submit"]:hover {
+  background-color: #555;
+}
+
+#testimonialForm input[type="text"] {
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#testimonialForm input[type="text"]::placeholder {
+  color: #999;
+}
+
+#testimonialForm input[type="text"]:focus {
+  outline: none;
+  border-color: #666;
+}
+
+</style>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+<head>
+  <title>Menu</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+      background-image: url("{% static 'bgcafe.jpg' %}");
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #f8ebeb;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .menu {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      margin-top: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .category {
+      margin-bottom: 20px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .carousel-item {
+      width: 22%;
+      padding: 10px;
+    }
+
+    .carousel-item img {
+      width: 160px;
+      height: 200px;
+      border: 1px solid black;
+      border: 10px;
+    }
+
+    .item-info {
+      text-align: center;
+      margin-top: 10px;
+      margin-right: 15px;
+    }
+
+    .item img {
+  width: 150px; /* Set the desired width */
+  height: 150px; /* Set the desired height */
+  border-radius: 5px;
+}
+
+
+    .item-info h5 {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .item-info h6 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .item-info button {
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .item-info button:hover {
+      background-color: #555;
+    }
+    
+    nav a:hover{
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/menu/">Menu</a>
+    <a href="/about/">About Us</a>
+    <a href="/testimonial/">Testimonials</a>
+  </nav>
+
+  <h1>Our Menu</h1>
+
+  <div class="menu">
+    {% for product in allProds %}
+    <div class="category">
+      <h3>{{ product.0.category }}</h3>
+    </div>
+    <div id="carousel-{{ forloop.counter }}" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        {% for item in product %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="/media/{{ item.image }}" alt="{{ item.product_name }}">
+          <div class="item-info">
+            <h5>{{ item.product_name }}</h5>
+            <h6>Price: ₹{{ item.price }}</h6>
+            <span class="divpr">
+              <button class="btn btn-primary cart buyButton" style="border-radius: 10px; width: auto; padding: 5px 20px; height: auto;">Place Order</button>
+            </span>
+  
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#carousel-{{ forloop.counter }}" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-{{ forloop.counter }}" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    
+    var buyButtons = document.querySelectorAll('.buyButton');
+  buyButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var phoneNumber = "+916263989204";
+      var message = "Hello! I want to place order";
+      var encodedMessage = encodeURIComponent(message);
+      window.open("https://wa.me/" + phoneNumber + "?text=" + encodedMessage, "_blank");
+    });
+  });
+
+  </script>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

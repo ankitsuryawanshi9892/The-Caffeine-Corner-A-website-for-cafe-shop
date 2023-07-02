@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>The Caffeine Corner</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+    
+    header {
+      background-color: #221111;
+      color: #fff;
+      padding: 10px;
+      height: 50px;
+      text-align: center;
+      padding-top: 2px;
+    }
+    
+    h2 {
+      margin: 9px;
+      margin-top: 20px;
+      margin-bottom: -36px;
+    }
+    
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+    
+    
+    nav a:hover{
+      text-decoration: underline;
+    }
+    
+    .container {
+      height: 550px;
+      margin: 80px 1;
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      padding: 20px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .title {
+      text-align: center;
+      margin: 15% 18%;
+    }
+    
+    .offer:hover {
+      transform: scale(1.003);
+      text-decoration: underline;
+    }
+    
+    .container2 {
+      padding: 20px;
+    }
+    
+    .card {
+      width: 18rem;
+      margin-bottom: 20px;
+    }
+    
+    .card-img-top {
+      height: 100px;
+      width: 100px;
+    }
+    
+    .card-title,
+    .card-text {
+      color: black;
+    }
+    
+    .btn-primary {
+      background-color: transparent;
+      border: 2px solid #130e0e;
+      color: #09080a;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: #282020;
+      color: #fbf4f4;
+    }
+    
+    .carousel-wrapper {
+      margin-bottom: -250px;
+    }
+    
+    .carousel-item {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .card {
+      width: 18rem;
+      margin: 0 10px;
+    }
+    
+    .card-img-top {
+      height: 100px;
+      width: 100px;
+    }
+    
+    .card-title,
+    .card-text {
+      color: black;
+    }
+    
+    .btn-primary {
+      background-color: transparent;
+      border: 2px solid #130e0e;
+      color: #09080a;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+/* 
+    .heading h5{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    } */
+
+    .heading{
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .btn-primary:hover {
+      background-color: #282020;
+      color: #fbf4f4;
+    }
+    
+    .shop-button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(245, 182, 182);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  /* color: white; */
+}
+
+.shop-button:hover {
+  background-color: #e68383;
+  color:black;
+}
+
+
+
+  </style>
+  <script>
+    // JavaScript code
+    window.addEventListener('DOMContentLoaded', function() {
+      var container = document.querySelector('.container');
+      var images = [
+        '{% static "bgg.jpg" %}',
+        '{% static "bggg.jpg" %}',
+        '{% static "bg3.jpg" %}'
+      ];
+      function changeBackground() {
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var imageUrl = 'url("' + images[randomIndex] + '")';
+        container.style.backgroundImage = imageUrl;
+      }
+      
+      // Change background image every 5 seconds
+      setInterval(changeBackground, 5000);
+    });
+
+    document.getElementById("buyButton").addEventListener("click", function() {
+  var phoneNumber = "+91 6263989204";
+  var message = "Hello from the button";
+  var encodedMessage = encodeURIComponent(message);
+  window.open("https://wa.me/" + phoneNumber + "?text=" + encodedMessage, "_blank");
+});
+
+  </script>
+</head>
+<body>
+  
+  <nav>
+    <a href="#">Home</a>
+    <a href="/menu/">Menu</a>
+    <a href="/about">About Us</a>
+    <a href="/testimonial/">Testimonials</a>
+  </nav>
+
+  <div class="container" style="text-align: center;">
+    <!-- <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: #09080a;">The Caffeine Corner</h2> -->
+    <div class="title">
+      <p><b>Embark on an Exquisite Gastronomic Journey through the Diverse Landscapes of India, Where Each Flavor Tells a Captivating Story, at Our Culturally Immersive Café Haven!</b></p>
+      <button onclick="scrollToOffers()" class="shop-button">SHOP HERE</button>
+    </div>
+  </div>
+
+  <div class="container2" id="Offers">
+    <div class="main" style="display: flex; justify-content: center;">
+      <h2>Our Offers:</h2>
+    </div>
+    <!-- Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    <div class="carousel-wrapper">
+      <div class="heading">
+        <h5 class="my-4" style="margin-top: 55px; margin-bottom: 5px;">Our offer on {{ product.0.category }}</h5>
+      </div>
+      <div id="demo{{ forloop.counter }}" class="carousel slide" data-ride="carousel">
+        <div class="container carousel-inner">
+          {% for i in product %}
+          {% if forloop.first %}
+          <div class="carousel-item active">
+          {% elif forloop.counter0|divisibleby:4 %}
+          <div class="carousel-item">
+          {% endif %}
+            <div class="col-xs-3 col-sm-3 col-md-3">
+               <div class="card align-items-center">
+                <img src="{{ i.image.url }}" style="width: 200px; height: 200px; border-radius: 5px;" class="card-img-top" alt="...">
+                <div class="card-body" style="width: 200px; height: 200px; color: white; text-align: center; margin-right: 10px;">
+                  <h5 class="card-title" style="margin: 5px; text-decoration: none;">{{ i.product_name }}</h5>
+                  <p class="card-text" style="margin: 5px; text-decoration: none;">{{ i.desc|slice:"0:53" }}...</p>
+                  <h6 class="card-title" style="margin: 5px; text-decoration: none;">Price: <span>₹{{ i.price }}</span></h6>
+                  <span class="divpr">
+                    <button class="btn btn-primary cart buyButton" style="border-radius: 10px; width: auto; padding: 5px 20px; height: auto;">Place Order</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          {% if forloop.counter|divisibleby:4 or forloop.last %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <!-- left and right controls for the slide -->
+        <a class="carousel-control-prev" href="#demo{{ forloop.counter }}" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo{{ forloop.counter }}" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <script>
+    function scrollToOffers() {
+      const offersSection = document.getElementById('Offers');
+      offersSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    var buyButtons = document.querySelectorAll('.buyButton');
+  buyButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var phoneNumber = "+916263989204";
+      var message = "Hello! I want to place order";
+      var encodedMessage = encodeURIComponent(message);
+      window.open("https://wa.me/" + phoneNumber + "?text=" + encodedMessage, "_blank");
+    });
+  });
+  </script>
+    
+</body>
+</html>

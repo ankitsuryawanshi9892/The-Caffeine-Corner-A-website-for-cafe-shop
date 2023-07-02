@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - The Caffeine Corner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/menu/">Menu</a>
+        <a href="/about">About Us</a>
+        <a href="/testimonial/">Testimonials</a>
+      </nav>
+    </div>
+  </header>
+  <div class="hero">
+    <h1>About Us</h1>
+  </div>
+  <section id="about-section">
+    <div class="container">
+      <p>Welcome to The Caffeine Corner, your go-to café shop for exceptional coffee and a cozy atmosphere. We pride ourselves on providing a delightful experience to coffee enthusiasts, creating a haven where you can indulge in the perfect cup of coffee.</p>
+
+      <p>At The Caffeine Corner, we believe that coffee is more than just a beverage – it's an art form. That's why we meticulously source the finest coffee beans from around the world, ensuring each sip transports you to a realm of rich flavors and aromatic bliss. Our skilled baristas are passionate about their craft, expertly brewing each cup to perfection.</p>
+
+      <p>But it's not just about the coffee; it's about the entire experience. We've designed our café with a warm and inviting ambiance, where you can relax, socialize, or find solace in a cozy corner. Our friendly and knowledgeable staff is always ready to assist you, whether it's recommending your new favorite brew or sharing fascinating coffee trivia.</p>
+
+      <p>We believe in fostering a sense of community, and The Caffeine Corner serves as a hub for coffee lovers to connect and unwind. Whether you're seeking a quiet space to work, catching up with friends, or simply enjoying a moment of solitude, our café provides the perfect setting.</p>
+
+      <p>In addition to our exceptional coffee, we offer a delectable selection of pastries, baked goods, and light bites to complement your beverage. From freshly baked croissants to indulgent cakes, our menu features an array of treats that pair perfectly with our coffee creations.</p>
+
+      <p>We are committed to sustainability and ethical sourcing. Our coffee beans are sourced from farmers who employ environmentally friendly practices and fair trade principles, ensuring a positive impact on the communities they originate from. By supporting The Caffeine Corner, you're contributing to a more sustainable and equitable coffee industry.</p>
+
+      <p>Visit us at The Caffeine Corner and experience a delightful journey into the world of coffee. Whether you're a connoisseur or a casual coffee lover, we invite you to indulge in the perfect cup and embrace the warm embrace of our café. Unwind, connect, and savor the moments at The Caffeine Corner – your caffeine haven.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 The Caffeine Corner. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
+<!-- /* Global Styles */ -->
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: url("{% static 'bgcafe.jpg'%}");
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+
+nav a:hover{
+      text-decoration: underline;
+    }
+
+header {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.hero {
+  background-image: url("images/back.jpg");
+  background-size: cover;
+  background-position: center;
+  /* padding: 0px 0; */
+  padding-top: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+#about-section {
+  padding: 0px 0;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+footer {
+  background-color: transparent;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+</style>
